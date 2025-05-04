@@ -6,4 +6,8 @@ const wavesurfer = WaveSurfer.create({
   
   // Load an audio file
   wavesurfer.load('BTDT.mp3');
+  document.getElementById('playBtn').addEventListener('click', () => {
+    wavesurfer.playPause();
+  });
+
   
