@@ -1,54 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>waveform</title>
-    <script src="https://unpkg.com/wavesurfer.js"></script>
-
+  <meta charset="UTF-8" />
+  <title>Audio Running Tool</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <div class="container">
-        <div class="audio-list">
-          <h3>Audio List</h3>
-          <div id="audioButtons"></div>
-        </div>
-      
-        <div class="waveform-container">
-          <h2>Audio Running Tool</h2>
-          <div id="waveform"></div>
-          <button id="playPause">Play</button>
-        </div>
-      
-        <div class="queue">
-          <h3>Running Queue</h3>
-          <div id="queueList"></div>
-        </div>
-      </div>
-      
-    <script src="index.js"></script>
-</body> 
+  <div class="container">
+    <div class="audio-list">
+      <h3>Audio List</h3>
+      <div id="audioButtons"></div>
+    </div>
+
+    <div class="waveform-container">
+      <h2>Audio Running Tool</h2>
+      <p>Audio Waveform:</p>
+      <div id="waveform"></div>
+      <div id="time-display">00:00 / 00:00</div>
+      <button id="playPause">Play</button>
+    </div>
+
+    <div class="queue">
+      <h3>Running Queue</h3>
+      <div id="queueList"></div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/wavesurfer.js"></script>
+  <script src="index.js"></script>
+</body>
 </html>
 <style>
-    .container {
-      display: flex;
-      justify-content: space-between;
-      padding: 20px;
-    }
-    .audio-list, .queue {
-      width: 20%;
-    }
-    .waveform-container {
-      width: 55%;
-      text-align: center;
-    }
-    button {
-      display: block;
-      margin: 10px;
-      padding: 10px;
-      width: 100%;
-    }
-  </style>
-  
+body {
+  font-family: sans-serif;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+}
 
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.audio-list, .queue {
+  width: 20%;
+}
+
+.waveform-container {
+  width: 55%;
+  text-align: center;
+}
+
+.audio-list h3, .queue h3, .waveform-container h2 {
+  text-align: center;
+}
+
+#audioButtons button {
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  margin: 5px 0;
+  padding: 10px;
+  width: 100%;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#audioButtons button:hover {
+  background-color: #27ae60;
+}
+
+#queueList .queue-item {
+  background-color: #3498db;
+  color: white;
+  margin: 5px 0;
+  padding: 10px;
+  position: relative;
+}
+
+.queue-item span.remove {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+}
+
+.queue-item.playing {
+  background-color: #2ecc71;
+}
+
+#waveform {
+  margin-top: 10px;
+  height: 120px;
+}
+
+#time-display {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #333;
+}
+
+#playPause {
+  background-color: #f1c40f;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border: 2px solid #333;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+</style>
